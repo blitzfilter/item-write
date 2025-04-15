@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-item-core = { git = "https://github.com/blitzfilter/item-core", rev = "4ddcaff250d695ed89b33b57ad77606dba7a4403" }
+item-core = { git = "https://github.com/blitzfilter/item-core", rev = "a93e4157128cf00ea37402502e7b956977c9c223" }
 tokio = { version = "1", features = ["full"] }
 aws-config = { version = "1.6.1"}
 aws-sdk-dynamodb = { version = "1.71.1" }
