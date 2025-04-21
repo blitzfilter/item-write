@@ -4,8 +4,12 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-item-core = { git = "https://github.com/blitzfilter/item-core", rev = "a93e4157128cf00ea37402502e7b956977c9c223" }
-tokio = { version = "1", features = ["full"] }
-aws-config = { version = "1.6.1"}
+item-core = { git = "https://github.com/blitzfilter/item-core", branch = "main" }
 aws-sdk-dynamodb = { version = "1.71.1" }
-serde_dynamo = { version = "4.2.14", features = ["aws-sdk-dynamodb+1"] }
+serde_dynamo = { version = "4.2.14"}
+
+[dev-dependencies]
+test-api = { git = "https://github.com/blitzfilter/test-api", branch = "main" }
+item-read = { git = "https://github.com/blitzfilter/item-read", branch = "main" }
+tokio = { version = "1", features = ["full"] }
+serial_test = "3.2.0"
