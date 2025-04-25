@@ -7,9 +7,9 @@ edition = "2024"
 item-core = { git = "https://github.com/blitzfilter/item-core", branch = "main" }
 aws-sdk-dynamodb = { version = "1.71.1" }
 serde_dynamo = { version = "4.2.14"}
+tokio = { version = "1", features = ["default"] }
 
 [dev-dependencies]
 test-api = { git = "https://github.com/blitzfilter/test-api", branch = "main" }
 item-read = { git = "https://github.com/blitzfilter/item-read", branch = "main" }
-tokio = { version = "1", features = ["full"] }
 serial_test = "3.2.0"
