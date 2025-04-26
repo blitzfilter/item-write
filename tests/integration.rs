@@ -30,7 +30,8 @@ async fn should_create_items_when_write_new_items() {
     let items = ItemModel::generate_n::<2>();
 
     let client = get_client().await;
-    let write_res = write_items(&items, client).await;
+    let write_ress = write_items(&items, client).await;
+    let write_res = write_ress.get(0).unwrap();
     assert!(write_res.is_ok());
 
     // verify write
@@ -50,6 +51,8 @@ async fn should_write_new_items_when_above_max_batch_size() {
     let items = ItemModel::generate_n::<42>();
 
     let client = get_client().await;
-    let write_res = write_items(&items, client).await;
-    assert!(write_res.is_ok());
+    let write_ress = write_items(&items, client).await;
+    write_ress
+        .iter()
+        .for_each(|write_res| assert!(write_res.is_ok()))
 }
