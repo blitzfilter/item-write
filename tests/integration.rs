@@ -3,8 +3,8 @@ use item_read::item::{
     get_item_events_by_item_id_sort_latest, get_item_events_by_item_id_sort_oldest,
 };
 use item_write::{write_item, write_items};
-use test_api::dynamodb::get_client;
 use test_api::generator::Generator;
+use test_api::localstack::get_dynamodb_client;
 use test_api::test_api_macros::blitzfilter_dynamodb_test;
 use tokio::try_join;
 
@@ -12,7 +12,7 @@ use tokio::try_join;
 async fn should_create_item_when_write_new_item() {
     let item = ItemModel::generate();
 
-    let client = get_client().await;
+    let client = get_dynamodb_client().await;
     let write_res = write_item(&item, client).await;
     assert!(write_res.is_ok());
 
@@ -29,7 +29,7 @@ async fn should_create_item_when_write_new_item() {
 async fn should_create_items_when_write_new_items() {
     let items = ItemModel::generate_n::<2>();
 
-    let client = get_client().await;
+    let client = get_dynamodb_client().await;
     let write_ress = write_items(&items, client).await;
     let write_res = write_ress.get(0).unwrap();
     assert!(write_res.is_ok());
@@ -50,7 +50,7 @@ async fn should_create_items_when_write_new_items() {
 async fn should_write_new_items_when_above_max_batch_size() {
     let items = ItemModel::generate_n::<42>();
 
-    let client = get_client().await;
+    let client = get_dynamodb_client().await;
     let write_ress = write_items(&items, client).await;
     write_ress
         .iter()
