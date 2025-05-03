@@ -9,6 +9,7 @@ aws-sdk-dynamodb = { version = "1.71.1" }
 serde_dynamo = { version = "4.2.14", features = ["aws-sdk-dynamodb+1"]}
 tokio = { version = "1", features = ["default"] }
 futures = { version = "0.3.31" }
+tracing = "0.1.41"
 
 [dev-dependencies]
 test-api = { git = "https://github.com/blitzfilter/test-api", branch = "main" }
