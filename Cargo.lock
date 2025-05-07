@@ -1576,12 +1576,13 @@ dependencies = [
 [[package]]
 name = "item-read"
 version = "0.1.0"
-source = "git+https://github.com/blitzfilter/item-read?branch=main#429b9827d9468d223e658407c1422675b3b68f55"
+source = "git+https://github.com/blitzfilter/item-read?branch=main#297b531454c4981346c6f7d29e2559325a1d3f09"
 dependencies = [
  "aws-sdk-dynamodb",
  "item-core",
  "serde_dynamo",
  "tokio",
+ "tracing",
 ]
 
 [[package]]
